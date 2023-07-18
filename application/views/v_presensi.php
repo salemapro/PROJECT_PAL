@@ -396,7 +396,13 @@
                                 toastr.warning('NIP sudah terdaftar pada rapat ini');
                             }
                             if(response.sukses){
-                                Swal.fire('Data has been saved!', 'Thanks for your response', 'success');
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Data has been saved',
+                                    text: 'Thanks for your response',
+                                    showCancelButton: false,
+                                    showConfirmButton: true,
+                                })
                                 // location.reload()
                                 closeForm();
                             }

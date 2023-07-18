@@ -82,17 +82,11 @@ class M_hadir extends CI_Model
         $this->db->insert('tbl_daftarhadir', $simpan);
     }
 
-    public function hasSameNip($nip)
+    public function hasSameNip($nip, $id_rapat)
     {
         $this->db->from('tbl_daftarhadir');
-        $this->db->where('nip', $nip);
-        $data = $this->db->get();
-        $result = $data->row();
-        $nip = $result->nip;
-        if($nip == "-"){
-            return true;
-        } else {
-            return false;
-        }
+        $array = array('nip' => $nip, 'id_Rapat' => $id_rapat);
+        $this->db->where($array);
+        return $this->db->get()->result();
     }
 }

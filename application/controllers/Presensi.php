@@ -337,22 +337,18 @@ class Presensi extends CI_Controller
         $decoded_image = base64_decode($signature);
 		$file = $folderPath . uniqid() . "_" . $id_rapat . "_" . $filename . ".png";
 
-		if($nip != "-"){
-			$this->form_validation->set_rules(
-				'nip','NIP','trim|is_unique[tbl_daftarhadir.nip]'
-			);
-		}
-
-		// $result = $this->M_hadir->hasSameNip($nip);
-		// $this->form_validation->set_rules('nip', 'NIP', $result);
-		
-		if ($this->form_validation->run() == TRUE) {
+		if($nip == '-'){
 			$this->M_hadir->save($id_rapat, $nip, $nama, $jabatan, $unit, $instansi, $email, $file);
 			file_put_contents($file, $decoded_image);
-
 			$msg = ['sukses' => 'Berhasil'];
 		} else {
-			$msg = ['error' => 'Gagal Cuk'];
+			if(!$user = $this->M_hadir->hasSameNip($nip, $id_rapat)){
+				$this->M_hadir->save($id_rapat, $nip, $nama, $jabatan, $unit, $instansi, $email, $file);
+				file_put_contents($file, $decoded_image);
+				$msg = ['sukses' => 'Berhasil'];
+			} else {
+				$msg = ['error' => 'Yah Gagal']; 	
+			}
 		}
 		echo json_encode($msg);
 	}
