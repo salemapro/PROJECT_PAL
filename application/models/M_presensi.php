@@ -68,4 +68,5 @@ class M_presensi extends CI_Model{
     {
         return $this->db->delete('tbl_daftarrapat', ['id' => $id]);
     }
+
 }

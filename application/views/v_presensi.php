@@ -329,6 +329,7 @@
                 $("#jenis_rapat").val(0).change();
                 $("#no_nip").prop("checked", false);
                 $('#divInput').hide();
+                signaturePad.clear();
             } 
 
             //menyesuaikan tanda tangan dengan ukuran canvas
