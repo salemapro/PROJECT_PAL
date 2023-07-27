@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2023 at 08:50 PM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.3.6
+-- Waktu pembuatan: 27 Jul 2023 pada 06.43
+-- Versi server: 10.3.15-MariaDB
+-- Versi PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_admin`
+-- Struktur dari tabel `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
@@ -35,7 +35,7 @@ CREATE TABLE `tbl_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_admin`
+-- Dumping data untuk tabel `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`id`, `username`, `password`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `tbl_admin` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_daftarhadir`
+-- Struktur dari tabel `tbl_daftarhadir`
 --
 
 CREATE TABLE `tbl_daftarhadir` (
@@ -61,18 +61,17 @@ CREATE TABLE `tbl_daftarhadir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_daftarhadir`
+-- Dumping data untuk tabel `tbl_daftarhadir`
 --
 
 INSERT INTO `tbl_daftarhadir` (`id`, `id_Rapat`, `nip`, `namaLengkap`, `jabatan`, `unit`, `instansi`, `email`, `sign`, `attendance`) VALUES
 (1, 1, '212303002', 'Salma Sayyidah', 'Direktur', 'Pemberantas Korupsi', 'PT. Salema Jaya', 'ssaruma@gmail.com', NULL, '2023-07-10 01:30:00'),
-(39, 1, '212303022', 'Seokjin', 'Bendahara', 'Pemberantas Korupsi', 'PT. Salema Jaya', 'seokjinna@gmail.com', 'img_sign/64b587ec19b8e_1_17072023.png', '2023-07-17 18:26:52'),
-(40, 1, '212303003', 'Baekhyun Byun', 'HRD', 'Pemberantas Korupsi', 'PT. Salema Jaya', 'baekhyunchan@gmail.com', 'img_sign/64b58af59ed5f_1_17072023.png', '2023-07-17 18:39:49');
+(2, 2, '212303002', 'Salma Sayyidah', 'Direktur', 'Pemberantas Korupsi', 'PT EXCALIBER', 'sarumasa@gmail.com', 'img_sign/64b64d8f581ec_2_18072023.png', '2023-07-18 08:30:07');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_daftarrapat`
+-- Struktur dari tabel `tbl_daftarrapat`
 --
 
 CREATE TABLE `tbl_daftarrapat` (
@@ -88,55 +87,56 @@ CREATE TABLE `tbl_daftarrapat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_daftarrapat`
+-- Dumping data untuk tabel `tbl_daftarrapat`
 --
 
 INSERT INTO `tbl_daftarrapat` (`id`, `judulRapat`, `tempat`, `tanggal`, `waktu`, `status`, `idZoom`, `link`, `password`) VALUES
-(1, 'Rapat pembahasan pembangunan IKN tahun 2024', 'Zoom Meetings', '2023-07-03', '09:30:00', 1, '234ahsbg2', 'https://zoom.meetings.com', 'abg2512');
+(1, 'Rapat pembahasan pembangunan IKN tahun 2024', 'Zoom Meetings', '2023-07-03', '09:30:00', 0, '234ahsbg2', 'https://zoom.meetings.com', 'abg25123'),
+(2, 'Rapat Pembahasan Project Tender Kementrian Luar Nagreg', 'Gmeet', '2023-07-18', '04:40:00', 0, '123432567', 'https://gmeet.com', 'axcd12ghghb');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tbl_admin`
+-- Indeks untuk tabel `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_daftarhadir`
+-- Indeks untuk tabel `tbl_daftarhadir`
 --
 ALTER TABLE `tbl_daftarhadir`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_daftarrapat`
+-- Indeks untuk tabel `tbl_daftarrapat`
 --
 ALTER TABLE `tbl_daftarrapat`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_admin`
+-- AUTO_INCREMENT untuk tabel `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_daftarhadir`
+-- AUTO_INCREMENT untuk tabel `tbl_daftarhadir`
 --
 ALTER TABLE `tbl_daftarhadir`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_daftarrapat`
+-- AUTO_INCREMENT untuk tabel `tbl_daftarrapat`
 --
 ALTER TABLE `tbl_daftarrapat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

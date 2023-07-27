@@ -48,9 +48,9 @@
                     <ul class="navbar-nav">
 
                         <a href="#" class="navbar-brand">
-                            <!-- <img src="<?php echo base_url('image/miLogo.png') ?>" alt="A" class="brand-image"style="opacity: .8;margin: 30px 0 0 0 0; width:27px;height:27px"> -->
-                            <span class="brand-text">SS</span>
-                            <span class="brand-text font-weight-light">Presensi Rapat</span>
+                            <img src="<?php echo base_url('assets/template/dist/img/insaba.png') ?>" alt="A" class="brand-image"style="margin: 30px 0 0 0 0;>
+                            <span class="brand-text">Presensi Rapat</span>
+                            <!-- <span class="brand-text font-weight-light">Presensi Rapat</span> -->
                         </a>
                     </ul>
 

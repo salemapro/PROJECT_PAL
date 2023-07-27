@@ -40,7 +40,6 @@
                 border: 1px solid #ccc;
                 border-radius: 0.5rem;
                 width: 100%;
-                /* height: 400px; */
             }
         </style>
     </head>
@@ -48,15 +47,15 @@
         <div class="wrapper">
 
             <!-- Navbar -->
-            <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
+            <nav class="main-header navbar navbar-expand navbar-primary navbar-dark">
                 <div class="container">
 
                     <!-- Left navbar links -->
                     <ul class="navbar-nav">
                         <a href="#" class="navbar-brand">
-                            <!-- <img src="<?php echo base_url('image/miLogo.png') ?>" alt="A" class="brand-image"style="opacity: .8;margin: 30px 0 0 0 0; width:27px;height:27px"> -->
-                            <span class="brand-text">SS</span>
-                            <span class="brand-text font-weight-light">Presensi Rapat</span>
+                            <img src="<?php echo base_url('assets/template/dist/img/insaba.png') ?>" alt="A" class="brand-image"style="margin: 30px 0 0 0 0;">
+                            <!-- <span class="brand-text">SS</span> -->
+                            <span class="brand-text font-light">Presensi Rapat</span>
                         </a>
                     </ul>
 
@@ -230,45 +229,10 @@
         <!-- JQuery -->
         <script type="text/javascript">
             $(document).ready(function() {
-                // var list = $('#jenis_rapat');
-                // if(list.length == 0){
-                //     Swal.fire('Information','Saat ini tidak ada rapat yang tersedia', 'info');
-                // }
-                
-                // if($('#jenis_rapat').has('option').length == 0){
-                //     Swal.fire('Information', 'Saat ini tidak ada rapat yang tersedia', 'info');
-                // }
-                // if( $('#jenis_rapat').val()){
-                //     Swal.fire('Information','Saat ini tidak ada rapat yang tersedia', 'info');
-                // }
-
-                // if($('#jenis_rapat')[0].value){
-                //     Swal.fire('Information','Saat ini tidak ada rapat yang tersedia', 'info');
-                // }
-
-                // if($('#jenis_rapat').has('option').length == 0){
-                //     Swal.fire('Information', 'Saat ini tidak ada rapat yang tersedia', 'info');
-                // }
-
-                //  var list = $('#jenis_rapat').filter(function() {
-                //     return $(this).val == 0
-                //  }).length;
-                //  if (list){
-                //     Swal.fire('Information', 'Saat ini tidak ada rapat yang tersedia', 'info');
-                //  }
-
-                // $('.form-control').each(function(){
-                //     if ($(this).val() == 0) {
-                //         Swal.fire('Information', 'Saat ini tidak ada rapat yang tersedia', 'info');
-                //     }
-                // });
-
-                // $('#jenis_rapat').change(function(){
-                //     var list = $(this).val();
-                //     if (list === ''){
-                //         // Swal.fire('Information', 'Saat ini tidak ada rapat yang tersedia', 'info');
-                //     }
-                // });
+                var list = <?php echo json_encode($presensi); ?>;
+                if(list.length == 0){
+                    Swal.fire('Information','Saat ini tidak ada rapat yang tersedia', 'info');
+                }
 
                 $('#divInput').hide();
                 document.addEventListener('DOMContentLoaded', function () {
