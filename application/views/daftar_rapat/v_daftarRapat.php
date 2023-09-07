@@ -45,10 +45,6 @@
                                                 <td align="center"><?php echo $row->id ?></td>
                                                 <td>
                                                     <b><?php echo $row->judulRapat ?></b><br>
-                                                    <hr>
-                                                    Link : <?php echo $row->link ?><br>
-                                                    id : <?php echo $row->idZoom ?><br>
-                                                    password: <?php echo $row->password ?>
                                                 </td>
                                                 <td align="center"><?php echo $row->tempat ?></td>
                                                 <td align="center"><?php echo date('d/m/Y', strtotime($row->tanggal)), " ",  date('h:i A', strtotime($row->waktu)) ?></td>
@@ -133,9 +129,10 @@
         <script type="text/javascript">
             $(function() {
                 $("#example1").DataTable({
+                    "ordering": false,
                     "responsive": true, "lengthChange": false, "autoWidth": false,
-                    "buttons": ["csv", "excel", "pdf", "print", "colvis"]
-                    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                    "buttons": ["excel", "pdf", "print"]
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             });
             
             $("input[data-bootstrap-switch]").each(function() {

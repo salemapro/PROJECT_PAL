@@ -8,7 +8,6 @@
                     </button>
                 </div>
                 <?php echo form_open('presensi/simpanDataRapat', ['class' => 'formSimpanRapat']) ?>
-                <!-- <div class="pesan" style="display: none;"></div> -->
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="inputJudul" class="col-sm-3 col-form-label">Judul Rapat</label>
@@ -25,7 +24,6 @@
                     <div class="form-group row">
                         <label for="inputTanggal" class="col-sm-3 col-form-label">Tanggal</label>
                         <div class="col-sm-9">
-                            <!-- <input type="date" class="form-control" id="inputTanggal" name="tanggal"> -->
                             <div class="input-group date" id="reservationdate" data-target-input="nearest">
                                 <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -37,31 +35,12 @@
                     <div class="form-group row">
                         <label for="inputWaktu" class="col-sm-3 col-form-label">Waktu</label>
                         <div class="col-sm-9">
-                            <!-- <input type="time" class="form-control" id="inputWaktu" name="waktu"> -->
                             <div class="input-group date" id="timepicker" data-target-input="nearest">
                                 <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="far fa-clock"></i></div>
                                 </div>
                                 <input type="text" class="form-control datetimepicker-input" id="inputWaktu" name="waktu" data-target="#timepicker" placeholder="Waktu Rapat">
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputLink" class="col-sm-3 col-form-label">Link Zoom/Gmeet</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputLink" name="link" placeholder="Link Zoom or Gmeet">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputId" class="col-sm-3 col-form-label">Id Zoom/Gmeet</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputId" name="idZoom" placeholder="id Zoom or Gmeet">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPw" class="col-sm-3 col-form-label">Password Zoom/Gmeet</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputPw" name="password" placeholder="Password Zoom or Gmeet">
                         </div>
                     </div>
                     <div class="form-group row">

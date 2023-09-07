@@ -21,17 +21,14 @@ class M_presensi extends CI_Model{
         //die();
     }
 
-    public function simpan($judul, $tempat, $tanggal, $waktu, $link, $idZoom, $status, $password)
+    public function simpan($judul, $tempat, $tanggal, $waktu, $status)
     {
         $simpan = [
             'judulRapat' => $judul,
             'tempat' => $tempat,
             'tanggal' => $tanggal,
             'waktu' => $waktu,
-            'status' => $status,
-            'idZoom' => $idZoom,
-            'link' => $link,
-            'password' => $password
+            'status' => $status
         ];
         $this->db->insert('tbl_daftarrapat',$simpan);
     }
@@ -48,17 +45,14 @@ class M_presensi extends CI_Model{
         return $this->db->get_where('tbl_daftarrapat',['id' => $id]);
     }
 
-    public function update($id, $judul, $tempat, $tanggal, $waktu, $link, $idZoom, $status, $password)
+    public function update($id, $judul, $tempat, $tanggal, $waktu, $status)
     {
         $update = [
             'judulRapat' => $judul,
             'tempat' => $tempat,
             'tanggal' => $tanggal,
             'waktu' => $waktu,
-            'status' => $status,
-            'idZoom' => $idZoom,
-            'link' => $link,
-            'password' => $password
+            'status' => $status
         ];
         $this->db->where('id', $id);
         $this->db->update('tbl_daftarrapat',$update);

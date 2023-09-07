@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SS | Presensi Rapat</title>
+        <title>Presensi Rapat</title>
         <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/template/dist/img/fav-insaba.png') ?>">
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,7 +35,6 @@
 
         <!-- Google Font: Source Sans Pro -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
         <style>
             canvas{
                 border: 1px solid #ccc;
@@ -48,7 +47,7 @@
         <div class="wrapper">
 
             <!-- Navbar -->
-            <nav class="main-header navbar navbar-expand navbar-primary navbar-dark">
+            <nav class="main-header navbar navbar-expand-md navbar-black navbar-dark">
                 <div class="container">
 
                     <!-- Left navbar links -->
@@ -88,7 +87,7 @@
                     <div class="container">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h3>Presensi Rapat v1.0</h3>
+                                <!-- <h3>Presensi Rapat v1.0</h3> -->
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
@@ -223,9 +222,23 @@
 
         <!-- Toastr -->
         <script src="<?php echo base_url('assets/template') ?>/plugins/toastr/toastr.min.js"></script>
-
+        
         <!-- AdminLTE App -->
         <script src="<?php echo base_url('assets/template') ?>/dist/js/adminlte.min.js"></script>
+        
+        <!-- bs-input-custom-file -->
+        <script src="<?php echo base_url('assets/template') ?>/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+        
+
+        <!-- Page Script -->
+        <script type="text/javascript">
+            function isNumberKey(evt){
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                    return false;
+                return true;
+            }
+        </script>
 
         <!-- JQuery -->
         <script type="text/javascript">
@@ -236,6 +249,7 @@
                 }
 
                 $('#divInput').hide();
+                
                 document.addEventListener('DOMContentLoaded', function () {
                     resizeCanvas();
                 })
@@ -255,13 +269,6 @@
                         }
                     });
                 });
-
-                function isNumberKey(evt){
-                    var charCode = (evt.which) ? evt.which : event.keyCode
-                    if (charCode > 31 && (charCode < 48 || charCode > 57))
-                        return false;
-                    return true;
-                }
             });
 
             function openForm() {

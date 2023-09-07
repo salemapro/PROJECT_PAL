@@ -8,7 +8,6 @@
                     </button>
                 </div>
                 <?php echo form_open('presensi/updateDataRapat', ['class' => 'formUpdateRapat']) ?>
-                <!-- <div class="pesan" style="display: none;"></div> -->
                 <div class="modal-body">
                     <input type="hidden" name="id" value="<?= $id; ?>">
                     <div class="form-group row">
@@ -26,7 +25,6 @@
                     <div class="form-group row">
                         <label for="inputTanggal" class="col-sm-3 col-form-label">Tanggal</label>
                         <div class="col-sm-9">
-                            <!-- <input type="date" class="form-control" id="inputTanggal" name="tanggal" value="<?php echo  $tanggal ?>"> -->
                             <div class="input-group date" id="reservationdate" data-target-input="nearest">
                                 <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -38,31 +36,12 @@
                     <div class="form-group row">
                         <label for="inputWaktu" class="col-sm-3 col-form-label">Waktu</label>
                         <div class="col-sm-9">
-                            <!-- <input type="time" class="form-control" id="inputWaktu" name="waktu" value="<?php echo $waktu ?>"> -->
                             <div class="input-group date" id="timepicker" data-target-input="nearest">
                                 <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="far fa-clock"></i></div>
                                 </div>
                                 <input type="text" class="form-control datetimepicker-input" id="inputWaktu" name="waktu" value="<?php echo $waktu ?>" data-target="#timepicker"/>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputLink" class="col-sm-3 col-form-label">Link Zoom/Gmeet</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputLink" name="link" value="<?php echo $link ?>">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputId" class="col-sm-3 col-form-label">Id Zoom/Gmeet</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputId" name="idZoom" value="<?php echo $idZoom ?>">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPw" class="col-sm-3 col-form-label">Password Zoom/Gmeet</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputPw" name="password" value="<?php echo $password ?>">
                         </div>
                     </div>
                     <div class="form-group row">

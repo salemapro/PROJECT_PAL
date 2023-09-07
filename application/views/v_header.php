@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SS | Presensi Rapat</title>
+        <title>Presensi Rapat</title>
         <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/template/dist/img/fav-insaba.png') ?>">
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,21 +37,18 @@
         <!-- Google Font: Source Sans Pro -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     </head>
-
     <body class="layout-top-nav dark-mode text-sm">
         <div class="wrapper">
 
             <!-- Navbar -->
-            <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
-
+            <nav class="main-header navbar navbar-expand-md navbar-black navbar-dark">
                 <div class="container">
+
                     <!-- Left navbar links -->
                     <ul class="navbar-nav">
-
                         <a href="#" class="navbar-brand">
                             <img src="<?php echo base_url('assets/template/dist/img/insaba.png') ?>" alt="A" class="brand-image"style="margin: 30px 0 0 0 0;>
-                            <span class="brand-text">Presensi Rapat</span>
-                            <!-- <span class="brand-text font-weight-light">Presensi Rapat</span> -->
+                            <span class="brand-text font-light">Presensi Rapat</span>
                         </a>
                     </ul>
 
@@ -76,7 +73,6 @@
                             <a href="<?php echo base_url() . 'index.php/Presensi/daftarRapat' ?>" class="nav-link">Daftar Rapat</a>
                         </li>
                     </ul>
-
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class=" btn btn-primary" href="<?php echo base_url('login/logout'); ?>" role="button">

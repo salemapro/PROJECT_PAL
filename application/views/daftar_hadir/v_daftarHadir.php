@@ -22,8 +22,8 @@
                                 <h3 class="card-title">Daftar Rapat</h3>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Silakan pilih rapat yang Anda ikuti :</p>
-                                <select class="form-control select text-sm" id="jenis_rapat" name="jenis_rapat" required="" onchange="cariPresensi()">
+                                <p class="card-text">Pilih Rapat :</p>
+                                <select class="form-control select2 text-sm" id="jenis_rapat" name="jenis_rapat" required="" onchange="cariPresensi()">
                                     <option value="0" selected="" disabled="">-- Pilih Rapat --</option>                                    
                                     <?php
                                         foreach ($presensi as $row) :
@@ -41,6 +41,11 @@
                                 <div class="form-group">
                                     <button class="btn btn-sm btn-primary" id="tambahHadir" onclick="tambahHadir()"> <i class="fa fa-plus"></i> New Entry</button>
                                 </div>
+                                <!-- <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary">Excel</button>
+                                    <button type="button" class="btn btn-secondary">PDF</button>
+                                    <button type="button" class="btn btn-secondary">Print</button>
+                                </div> -->
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead align="center">
                                         <tr>
@@ -56,7 +61,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tbody">
-        
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -80,10 +85,13 @@
         <!-- ./wrapper -->
 
         <!-- jQuery -->
-        <script type="text/javascript" src="<?php echo base_url('assets/template')?>/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets/template') ?>/plugins/jquery/jquery.min.js"></script>
 
         <!-- Bootstrap 4 -->
-        <script type="text/javascript" src="<?php echo base_url('assets/template')?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets/template') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- SweetAlert2 -->
+        <script src="<?php echo base_url('assets/template') ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
 
         <!-- InputMask -->
         <script src="<?php echo base_url('assets/template') ?>/plugins/moment/moment.min.js"></script>
@@ -102,31 +110,29 @@
         <script src="<?php echo base_url('assets/template') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
         <script src="<?php echo base_url('assets/template') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
         <script src="<?php echo base_url('assets/template') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-        
-        <!--Export table buttons-->
-        <script type="text/javascript" src="<?php echo base_url('assets/template')?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url('assets/template')?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+
+        <!-- Bootstrap Switch -->
+        <script src="<?php echo base_url('assets/template') ?>/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 
         <!-- AdminLTE App -->
-        <script type="text/javascript" src="<?php echo base_url('assets/template')?>/dist/js/adminlte.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets/template') ?>/dist/js/adminlte.min.js"></script>
 
         <!-- Tempusdominus Bootstrap 4 -->
         <script src="<?php echo base_url('assets/template') ?>/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 
         <!-- Toastr -->
         <script type="text/javascript" src="<?php echo base_url('assets/template/plugins/toastr/toastr.min.js'); ?>"></script>
-
-        <!-- SweetAlert2 -->
-        <script src="<?php echo base_url('assets/template') ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
-
+        
         <!-- Page Script -->
         <script type="text/javascript">
             $(function() {
                 $("#example1").DataTable({
+                    "ordering": false,
                     "responsive": true, "lengthChange": false, "autoWidth": false,
-                    "buttons": ["csv", "excel", "pdf", "print", "colvis"]
+                    "buttons": ["excel", "pdf", "print"]
                 }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             });
+
         </script>
 
         <!-- JQuery -->
@@ -159,8 +165,11 @@
                                 $('#filter').focus();
                                 $('#example1').DataTable({
                                     "paging": true,
-                                    "lengthChange": false
-                                });
+                                    "lengthChange": false,
+                                    "responsive": true,
+                                    "autoWidth": false,
+                                    "buttons": ["print","excel","pdf"]
+                                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
                             } catch (e) {
                                 //toastr.warning('Error with message: ' + e.message);
                             }
@@ -178,19 +187,20 @@
                 $('#dataHadir').show();
             }
 
-            function create_data_table_row(index, item) {
-                var row = $('<tr><td>' + item.id + '</td> ' +
-                    '<td>' + item.nip + '</td> ' +
-                    '<td>' + item.namaLengkap + '</td> ' +
-                    '<td>' + item.jabatan + '</td> ' +
-                    '<td>' + item.unit + '</td> ' +
-                    '<td>' + item.instansi + '</td> ' +
-                    '<td>' + item.email + '</td> ' +
-                    '<td>' + item.attendance + '</td> ' +
-                    '<td nowrap><button title="Update" onclick="getRapat(' + item.id + ' )" class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit"></i> </button> &nbsp; <button title="Delete" onclick="deleteConfirm(' + item.id + ')" class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> </button>' +
-                    '</td></tr>');
+            function create_data_table_row(index, item) { 
+                var row = $('<tr><td>'+item.id+'</td> '+
+                '<td>'+item.nip+'</td> '+
+                '<td>'+item.namaLengkap+'</td> '+
+                '<td>'+item.jabatan +'</td> '+
+                '<td>'+item.unit+'</td> '+
+                '<td>'+item.instansi+'</td> '+
+                '<td>'+item.email +'</td> '+
+                '<td>'+item.attendance +'</td> '+
+                '<td nowrap><button title="Update" onclick="getRapat(' + item.id + ' )" class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit"></i> </button> &nbsp; <button title="Delete" onclick="deleteConfirm(' + item.id + ')" class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> </button>' +
+                '</td></tr>');
+            
                 return row;
-            }
+            } 
 
             function tambahHadir(){
                 var id_rapat = $('#jenis_rapat').val();

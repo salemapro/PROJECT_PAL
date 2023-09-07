@@ -79,10 +79,7 @@ class Presensi extends CI_Controller
 					'tempat' => $row['tempat'],
 					'tanggal' => $row['tanggal'],
 					'waktu' => $row['waktu'],
-					'status' => $row['status'],
-					'idZoom' => $row['idZoom'],
-					'link' => $row['link'],
-					'password' => $row['password']
+					'status' => $row['status']
 				];
 			}
 			$msg = [
@@ -126,10 +123,7 @@ class Presensi extends CI_Controller
 			$tempat = $this->input->post('tempat', true);
 			$tanggal = $this->input->post('tanggal', true);
 			$waktu = $this->input->post('waktu', true);
-			$link = $this->input->post('link', true);
-			$idZoom = $this->input->post('idZoom', true);
 			$status = $this->input->post('status', true);
-			$password = $this->input->post('password', true);
 
 			$this->form_validation->set_rules(
 				'judul', 'Judul Rapat', 'trim|required|is_unique[tbl_daftarrapat.judulRapat]',
@@ -139,7 +133,7 @@ class Presensi extends CI_Controller
 				]
 			);
 			if ($this->form_validation->run() == TRUE) {
-				$this->M_presensi->simpan($judul, $tempat, $tanggal, $waktu, $link, $idZoom, $status, $password);
+				$this->M_presensi->simpan($judul, $tempat, $tanggal, $waktu, $status);
 
 				$msg = [
 					'sukses' => 'data rapat berhasil disimpan'
@@ -241,10 +235,7 @@ class Presensi extends CI_Controller
 			$tempat = $this->input->post('tempat', true);
 			$tanggal = $this->input->post('tanggal', true);
 			$waktu = $this->input->post('waktu', true);
-			$link = $this->input->post('link', true);
-			$idZoom = $this->input->post('idZoom', true);
 			$status = $this->input->post('status', true);
-			$password = $this->input->post('password', true);
 
 			$this->form_validation->set_rules(
 				'judul',
@@ -256,7 +247,7 @@ class Presensi extends CI_Controller
 			);
 
 			if ($this->form_validation->run() == TRUE) {
-				$this->M_presensi->update($id, $judul, $tempat, $tanggal, $waktu, $link, $idZoom, $status, $password);
+				$this->M_presensi->update($id, $judul, $tempat, $tanggal, $waktu, $status);
 
 				$msg = [
 					'sukses' => 'data rapat berhasil di-update'
