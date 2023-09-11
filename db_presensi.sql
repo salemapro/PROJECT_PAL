@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Agu 2023 pada 12.24
+-- Waktu pembuatan: 11 Sep 2023 pada 17.13
 -- Versi server: 10.3.15-MariaDB
 -- Versi PHP: 7.3.6
 
@@ -68,7 +68,7 @@ INSERT INTO `tbl_daftarhadir` (`id`, `id_Rapat`, `nip`, `namaLengkap`, `jabatan`
 (1, 1, '212303002', 'Salma Sayyidah', 'Direktur', 'Pemberantas Korupsi', 'PT. Salema Jaya', 'ssaruma@gmail.com', NULL, '2023-07-10 01:30:00'),
 (2, 2, '212303002', 'Salma Sayyidah', 'Direktur', 'Pemberantas Korupsi', 'PT EXCALIBER', 'sarumasa@gmail.com', 'img_sign/64b64d8f581ec_2_18072023.png', '2023-07-18 08:30:07'),
 (3, 2, '212303003', 'Baekhyun', 'HRD', 'Pemberantas Korupsi', 'PT. Salema Jaya', 'baekhyunchan@gmail.com', 'img_sign/64c36657cf123_2_28072023.png', '2023-07-28 06:55:19'),
-(4, 1, '-', 'Salma Sayyidah', 'HRD', 'Pemberantas Korupsi', 'PT. Salema Jaya', 'sarumasa@gmail.com', 'img_sign/64d20542a723f_1_08082023.png', '2023-08-08 09:05:06');
+(4, 1, '212303004', 'Elios Zanquen', 'HRD', 'Pemberantas Korupsi', 'PT. Salema Jaya', 'elii2023@gmail.com', 'img_sign/64d20542a723f_1_08082023.png', '2023-08-08 09:05:06');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,7 @@ CREATE TABLE `tbl_daftarrapat` (
 --
 
 INSERT INTO `tbl_daftarrapat` (`id`, `judulRapat`, `tempat`, `tanggal`, `waktu`, `status`) VALUES
-(1, 'Rapat pembahasan pembangunan IKN tahun 2024', 'Zoom Meetings', '2023-07-03', '10:20:00', 1),
+(1, 'Rapat pembahasan pembangunan IKN tahun 2024', 'Zoom Meetings', '2023-07-03', '10:00:00', 0),
 (2, 'Rapat Pembahasan Project Tender Kementrian Luar Nagreg', 'Gmeet', '2023-07-18', '04:40:00', 0);
 
 --

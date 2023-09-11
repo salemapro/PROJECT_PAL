@@ -47,7 +47,7 @@
                     <!-- Left navbar links -->
                     <ul class="navbar-nav">
                         <a href="#" class="navbar-brand">
-                            <img src="<?php echo base_url('assets/template/dist/img/insaba.png') ?>" alt="A" class="brand-image"style="margin: 30px 0 0 0 0;>
+                            <img src="<?php echo base_url('assets/template/dist/img/insaba.png') ?>" alt="A" class="brand-image" style="margin: 30px 0 0 0 0;>
                             <span class="brand-text font-light">Presensi Rapat</span>
                         </a>
                     </ul>
