@@ -41,11 +41,6 @@
                                 <div class="form-group">
                                     <button class="btn btn-sm btn-primary" id="tambahHadir" onclick="tambahHadir()"> <i class="fa fa-plus"></i> New Entry</button>
                                 </div>
-                                <!-- <div class="btn-group">
-                                    <button type="button" class="btn btn-secondary">Excel</button>
-                                    <button type="button" class="btn btn-secondary">PDF</button>
-                                    <button type="button" class="btn btn-secondary">Print</button>
-                                </div> -->
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead align="center">
                                         <tr>
@@ -57,6 +52,7 @@
                                             <th>Instansi</th>
                                             <th>Email</th>
                                             <th>Attendance</th>
+                                            <th>Sign</th>
                                             <th class="col-md-1" nowrap="">Action</th>
                                         </tr>
                                     </thead>
@@ -122,18 +118,6 @@
 
         <!-- Toastr -->
         <script type="text/javascript" src="<?php echo base_url('assets/template/plugins/toastr/toastr.min.js'); ?>"></script>
-        
-        <!-- Page Script -->
-        <script type="text/javascript">
-            $(function() {
-                $("#example1").DataTable({
-                    "ordering": false,
-                    "responsive": true, "lengthChange": false, "autoWidth": false,
-                    "buttons": ["excel", "pdf", "print"]
-                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            });
-
-        </script>
 
         <!-- JQuery -->
         <script type="text/javascript">
@@ -164,11 +148,47 @@
                                 });
                                 $('#filter').focus();
                                 $('#example1').DataTable({
+                                    "columnDefs": [
+                                        {
+                                            targets: 8,
+                                            visible: true
+                                        }
+                                    ],
                                     "paging": true,
                                     "lengthChange": false,
                                     "responsive": true,
                                     "autoWidth": false,
-                                    "buttons": ["print","excel","pdf"]
+                                    "buttons": [
+                                        {
+                                            extend: 'excel',
+                                            orientation: 'landscape',
+                                            exportOptions: {
+                                                stripHTML: false,
+                                                columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+                                            }
+                                        },
+                                        {
+                                            extend: 'pdf',
+                                            orientation: 'landscape',
+                                            exportOptions: {
+                                                stripHTML: false,
+                                                columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+                                            },
+                                            customize: function(doc){
+                                                //find paths of all images, already in base64 format
+                                                var arr2 = $('.img-fluid').map(function(){
+                                                                return this.src;
+                                                            }).get();
+                                            
+                                                for (var i = 0, c = 1; i < arr2.length; i++, c++) {
+                                                        doc.content[1].table.body[c][8] = {
+                                                            image: arr2[i],
+                                                            width: 80
+                                                        }
+                                                    }
+                                            }  
+                                        }
+                                    ]
                                 }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
                             } catch (e) {
                                 //toastr.warning('Error with message: ' + e.message);
@@ -188,17 +208,25 @@
             }
 
             function create_data_table_row(index, item) { 
+                var base_url = "<?php echo base_url(); ?>";
+                var img_src = "data:image/png;base64,"+ item.sign_base64;
+
                 var row = $('<tr><td>'+item.id+'</td> '+
-                '<td>'+item.nip+'</td> '+
-                '<td>'+item.namaLengkap+'</td> '+
-                '<td>'+item.jabatan +'</td> '+
-                '<td>'+item.unit+'</td> '+
-                '<td>'+item.instansi+'</td> '+
-                '<td>'+item.email +'</td> '+
-                '<td>'+item.attendance +'</td> '+
-                '<td nowrap><button title="Update" onclick="getRapat(' + item.id + ' )" class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit"></i> </button> &nbsp; <button title="Delete" onclick="deleteConfirm(' + item.id + ')" class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> </button>' +
-                '</td></tr>');
-            
+                                '<td>'+item.nip+'</td> '+
+                                '<td>'+item.namaLengkap+'</td> '+
+                                '<td>'+item.jabatan +'</td> '+
+                                '<td>'+item.unit+'</td> '+
+                                '<td>'+item.instansi+'</td> '+
+                                '<td>'+item.email +'</td> '+
+                                '<td>'+item.attendance +'</td> '+
+                                // '<td>'+ item.sign +'</td> '+
+                                //'<td><img src="'+ base_url + item.sign +'" width="110"></td> '+
+                                '<td><img class="img-fluid" src="data:image/png;base64,'+ item.sign_base64 +'" width="80"></td> '+
+                                '<td nowrap align="center">'+
+                                    '<button title="Update" onclick="getRapat(' + item.id + ' )" class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit"></i> </button> &nbsp;'+
+                                    '<button title="Delete" onclick="deleteConfirm(' + item.id + ')" class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> </button>' +
+                                '</td>'+
+                            '</tr>');
                 return row;
             } 
 

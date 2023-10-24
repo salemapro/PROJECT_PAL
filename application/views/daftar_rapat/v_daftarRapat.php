@@ -33,7 +33,7 @@
                                             <th>Tempat</th>
                                             <th>Tanggal dan Waktu</th>
                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th class="notexport">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,7 +51,7 @@
                                                 <td class="col-md-0" align="center">
                                                     <input type="checkbox" name="my-checkbox" data-bootstrap-switch data-off-color="danger" data-on-color="success" <?php echo $status ?> onchange="getStatusChanged(this, <?php echo $row->id; ?>);">
                                                 </td>
-                                                <td nowrap>
+                                                <td nowrap align="center">
                                                     <button title="Update" class="btn btn-sm btn-success" onclick="getRapat(<?php echo $row->id; ?>);">
                                                         <i class="fa fa-edit"></i>
                                                     </button>
@@ -128,10 +128,35 @@
         <!-- Page Script -->
         <script type="text/javascript">
             $(function() {
+                // $("#example1").DataTable({
+                //     "ordering": false,
+                //     "responsive": true, "lengthChange": false, "autoWidth": false,
+                //     "buttons": ["excel", "pdf", "print"]
+                // }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
                 $("#example1").DataTable({
                     "ordering": false,
                     "responsive": true, "lengthChange": false, "autoWidth": false,
-                    "buttons": ["excel", "pdf", "print"]
+                    "buttons": [
+                        {
+                            extend: 'excel',
+                            exportOptions: {
+                                columns: [0, 1, 2, 3]
+                            }
+                        },
+                        {
+                            extend: 'pdf',
+                            exportOptions: {
+                                columns: [0, 1, 2, 3]
+                            }
+                        },
+                        {
+                            extend: 'print',
+                            exportOptions: {
+                                columns: [0, 1, 2, 3]
+                            }
+                        }
+                    ]
                 }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             });
             

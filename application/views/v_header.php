@@ -67,10 +67,10 @@
                     <!-- Right navbar links -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item d-none d-sm-inline-block">
-                            <a href="<?php echo base_url() . 'index.php/Presensi/daftarHadir' ?>" class="nav-link">Daftar Hadir</a>
+                            <a href="<?php echo base_url() . 'index.php/Presensi/daftarRapat' ?>" class="nav-link">Daftar Rapat</a>
                         </li>
                         <li class="nav-item d-none d-sm-inline-block">
-                            <a href="<?php echo base_url() . 'index.php/Presensi/daftarRapat' ?>" class="nav-link">Daftar Rapat</a>
+                            <a href="<?php echo base_url() . 'index.php/Presensi/daftarHadir' ?>" class="nav-link">Daftar Hadir</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">

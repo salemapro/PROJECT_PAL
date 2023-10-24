@@ -54,7 +54,7 @@ class M_hadir extends CI_Model
         return $this->db->delete('tbl_daftarhadir', ['id' => $id]);
     }
 
-    public function save($id_rapat, $nip, $nama, $jabatan, $unit, $instansi, $email, $file)
+    public function save($id_rapat, $nip, $nama, $jabatan, $unit, $instansi, $email , $signature)
     {
         $simpan = [
             'id_Rapat' => $id_rapat,
@@ -64,7 +64,8 @@ class M_hadir extends CI_Model
             'unit' => $unit,
             'instansi' => $instansi,
             'email' => $email,
-            'sign' => $file
+            // 'sign' => $file,
+            'sign_base64' => $signature
         ];
         $this->db->insert('tbl_daftarhadir', $simpan);
     }

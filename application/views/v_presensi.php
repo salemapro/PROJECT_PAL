@@ -340,7 +340,7 @@
                     return;
                 }
 
-                if(nip.length < 6){
+                if(nip.length != 8 ){
                     if(nip != '-') {
                         toastr.warning('NIP tidak valid!');
                         document.getElementById("nip").focus(); 

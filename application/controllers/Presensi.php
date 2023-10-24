@@ -304,7 +304,7 @@ class Presensi extends CI_Controller
 
 			if($delete){
 				$msg = [
-					'sukses' => 'Rapat Berhasil Terhapus'
+					'sukses' => 'Data Hadir Berhasil Terhapus'
 				];
 			}
 			echo json_encode($msg);
@@ -324,17 +324,18 @@ class Presensi extends CI_Controller
 		$filename = date_create('now')->format('dmY');
 		$folderPath =  "img_sign/";
         // $encoded_image = explode(",", $signature)[1];
-        $decoded_image = base64_decode($signature);
+        // $decoded_image = base64_decode($signature);
+		// $sign_base64 = base64_encode($decoded_image);
 		$file = $folderPath . uniqid() . "_" . $id_rapat . "_" . $filename . ".png";
 
 		if($nip == '-'){
-			$this->M_hadir->save($id_rapat, $nip, $nama, $jabatan, $unit, $instansi, $email, $file);
-			file_put_contents($file, $decoded_image);
+			$this->M_hadir->save($id_rapat, $nip, $nama, $jabatan, $unit, $instansi, $email, $signature);
+			// file_put_contents($file, $decoded_image);
 			$msg = ['sukses' => 'Berhasil'];
 		} else {
 			if(!$user = $this->M_hadir->hasSameNip($nip, $id_rapat)){
-				$this->M_hadir->save($id_rapat, $nip, $nama, $jabatan, $unit, $instansi, $email, $file);
-				file_put_contents($file, $decoded_image);
+				$this->M_hadir->save($id_rapat, $nip, $nama, $jabatan, $unit, $instansi, $email, $signature);
+				// file_put_contents($file, $decoded_image);
 				$msg = ['sukses' => 'Berhasil'];
 			} else {
 				$msg = ['error' => 'Yah Gagal']; 	
